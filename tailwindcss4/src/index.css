@@ -1,6 +1,20 @@
 @import "tailwindcss";
 
 
+/* for any custom styles (in tailwind 4.0) read this: https://tailwindcss.com/docs/adding-custom-styles
+   here is the custom animations documentation too: https://tailwindcss.com/docs/animation#customizing-your-theme
+   you need the @theme block to declare things so tailwind can understand it */
+@theme {
+    /* once you write your custom animation, you declare it like this in the @theme block... this is what happens now */
+
+    /* 1. broswer loads all elements
+    /* 2. there's an element called logo that has a class of animate-fall
+    /* 2a. Tailwind: 'what the fuck does that mean'
+       2b. Tailwind: *looks in the @theme block* 'oh Alex wants me to call @keyframes fall for 1.3s
+       2c. Tailwind finds @keyframes fall, and applies the animation */
+    --animate-fall: fall 1.3s ease-out forwards; 
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -10,7 +24,6 @@
   --custom-maroon: #55120c;
   --custom-turq: #679591;
   --custom-white: #e6dfdc;
-  
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -90,6 +103,7 @@ button:hover {
   
 }
 
-.fall-animation {
+/* you don't need this since we're already declaring the animation in the tailwind styles*/
+/* .fall-animation {
   animation: fall 1.3s ease-out forwards; 
-}
+} */
